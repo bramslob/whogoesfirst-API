@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS `users`
 (
   `id`   INT(11) AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 )
   ENGINE = InnoDB;
 
