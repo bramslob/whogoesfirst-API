@@ -15,8 +15,16 @@ class Users
 
     public function overview($request, $response, $args)
     {
+        /**
+         * @var \PDO $db
+         */
+        $db = $this->container->get('db');
+
+        $usersQuery = $db->prepare('SELECT id, name FROM users');
+        $usersQuery->execute();
+
         return $response->withJson([
-            'x' => 'y',
+            'users' => $usersQuery->fetchAll(),
         ]);
     }
 }
